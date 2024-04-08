@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="">email
+            <input type="email" name="email" id="email">
+        </label>
+        <label for="">password
+            <input type="password" name="password" id="password">
+        </label>
+        <button onclick="handelClick()" type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    function handelClick(event) {
+        event.preventDefault
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        console.log(email)
+        console.log(password)
+
+
+        const userData = {
+            email, password
+        }
+
+        const data = fetch("https://localhost:3000/signin", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(userData)
+        });
+
+    }
+</script>
+
+
+</html>
